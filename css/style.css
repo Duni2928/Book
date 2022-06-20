@@ -65,7 +65,7 @@ body {
 }
 
 .cover-title {
-  height: 100px;
+  will-change: transform;
   font-size: 40px;
   font-family: "Satisfy";
   font-weight: 700;
@@ -205,6 +205,7 @@ body {
 }
 
 .page p {
+  will-change: transform;
   font-family: "Satisfy";
   color: #000;
 }
