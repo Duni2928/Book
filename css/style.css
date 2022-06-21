@@ -211,13 +211,14 @@ body {
 }
 
 .page-image {
-  margin: 10px auto;
+  margin: 7px auto;
   height: 20%;
 }
 .page-image img {
   display: block;
   border-radius: 5px;
   max-height: 100%;
+  filter: grayscale(10);
 }
 
 .page-title {
