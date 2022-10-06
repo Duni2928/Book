@@ -260,17 +260,19 @@ body {
 }
 .book-navigation {
   position: absolute;
+  width: 100%;
+  height: 100%;
   bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: flex-end;
+      -ms-flex-align: flex-end;
+          align-items: flex-end;
+  -webkit-box-pack: space-between;
+      -ms-flex-pack: space-between;
+          justify-content: space-between;
 }
 .next,
 .prev {
