@@ -3,38 +3,47 @@
 //book-section
 
 const book = document.querySelector('.book');
-const cover = document.querySelectorAll('.cover');
 const page = Array.from(book.children);
 page.forEach(item => {
   const zIndex = item.getAttribute('data-index');
   item.style.zIndex = -zIndex;
-  item.addEventListener('click', () => {
-    if (item.classList.contains('cover-first')){
-      if (!item.classList.contains("open")) {
-        page.forEach(el => {
-          el.classList.add("open")
-        })
-        setTimeout(() => {
-          item.classList.add('change')
-          item.style.zIndex = zIndex;
-        }, 1000);
-      } else {
-        item.classList.remove('change')
-        item.style.zIndex = -zIndex;
-        setTimeout(() => {
-          page.forEach(el => {
-            el.classList.remove("open")
-          })
-        }, 1000);
-      }
-    } else {
-      if (item.classList.contains("change")) {
-        item.classList.remove("change")
-        item.style.zIndex = -zIndex;
-      } else {
-        item.classList.add('change')
-        item.style.zIndex = zIndex;
-      }
-    }
-  })
 })
+const prev = document.querySelector(".prev")
+const next = document.querySelector(".next")
+let currentPage = 0
+let animation = false
+next.addEventListener("click", () => {
+  if (!page[0].classList.contains("open")) {
+    animation = true
+    page.forEach(el => {
+      el.classList.add("open")
+    })
+    setTimeout(() => {
+      page[0].classList.add("change")
+      animation = false
+    }, 800);
+  } else if (!animation) {
+    if ((currentPage == 5)) {
+      return
+    } else {
+      currentPage++
+      page[currentPage].classList.add("change")
+      page[currentPage].style.zIndex = currentPage;
+    }
+  }
+})
+prev.addEventListener("click", () => {
+  page[currentPage].classList.remove("change")
+  page[currentPage].style.zIndex = -currentPage;
+  currentPage--
+  if (currentPage == -1) {
+    currentPage = 0
+    setTimeout(() => {
+      page.forEach(item => {
+        item.classList.remove("open")
+      })
+    }, 800);
+
+  }
+})
+

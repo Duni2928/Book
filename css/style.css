@@ -20,10 +20,10 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
-
-
 .book-section {
+  user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
   background-color: #3792b9;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,6 +34,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
 }
 
 .book {
@@ -96,7 +97,6 @@ body {
   transition: all 0.8s linear;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  cursor: pointer;
 }
 
 .open {
@@ -257,4 +257,33 @@ body {
 .change {
   -webkit-transform: translateY(-50%) rotateX(20deg) rotateY(-180deg);
           transform: translateY(-50%) rotateX(20deg) rotateY(-180deg);
+}
+.book-navigation {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.next,
+.prev {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin: 0 10px;
+  cursor: pointer;
+  background: url("../img/prev.png") center no-repeat
+}
+.prev {
+  background: url("../img/prev.png") center no-repeat
+}
+.next{
+  background: url("../img/next.png") center no-repeat
 }
